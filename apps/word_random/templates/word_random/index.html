@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Random Word Generator</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'word_random/css/style.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="main">
+            <div class="middle">
+                <h1>Random Word (attempt #{{count}})</h1>
+                <p>{{string}}</p>
+                <form action="/add" method="post">
+                    {% csrf_token %}
+                    <button>Add counter</button>
+                </form>
+                <form action="/clear" method="post">
+                    {% csrf_token %}
+                    <button>Clear counter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
